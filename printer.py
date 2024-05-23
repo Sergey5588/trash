@@ -20,7 +20,7 @@ def click(x,y):
 time.sleep(3)
 r = 15
 a = [[1,1,1],[0,1,0],[0,1,1]]
-filename = r"E:\pycode\Chad.jpg"
+filename = r"path"
 with Image.open(filename) as img:
     img.load()
 
