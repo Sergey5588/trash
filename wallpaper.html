@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function digitalClock() {
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    var DATE = date.getDate();
+    var day = date.getDay();
+    let dayArr = ["Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+       //* добавление ведущих нулей */
+      if (hours < 10) hours = "0" + hours;
+      if (minutes < 10) minutes = "0" + minutes;
+      if (seconds < 10) seconds = "0" + seconds;
+        document.getElementById("id_clock").innerHTML = hours + ":" + minutes + ":" + seconds + "<div style='font-size: 30px; color: lightgray'>{DATE}</div>".replace('{DATE}', dayArr[day] +" "+ DATE.toString());
+        setTimeout("digitalClock()", 1000);
+   }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white; ">
+    <center>
+        <font face="Arial">
+
+            
+            <div style = " margin-top: 25%; font-size: 50px;" id ="id_clock"></div>
+            <script>digitalClock();</script>
+            
+        </font>
+    </center>
+</body>
+</html>
