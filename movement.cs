@@ -9,7 +9,7 @@ namespace matrix
             int x = 4, y = 4;
             Console.Title = "rougelike";
             string[,] matrix9x9 = new string[9,9];
-
+ 
 
 
             for (int i = 0; i < 9; i++)
