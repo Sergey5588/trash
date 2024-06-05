@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(gameObject.transform.rotation.y);
+        
         gameObject.transform.Rotate(new Vector3(0,2.0f*Input.GetAxis("Horizontal")));
         
         rb.velocity = new Vector3(Mathf.Sin(gameObject.transform.rotation.y *Mathf.PI) * Input.GetAxis("Vertical")*speed, 0, Mathf.Cos(gameObject.transform.rotation.y* Mathf.PI) * Input.GetAxis("Vertical")*speed);
