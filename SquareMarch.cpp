@@ -1,10 +1,11 @@
 // with help of @MAX-TS
-
+//draw with right mouse button
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <vector>
 #include <random>
 #include <ctime>
+
 
 #define ARRAYSIZE(a) (sizeof(a) / sizeof(a[0]))
 
@@ -147,7 +148,7 @@ int main()
         for (int j = 0; j < ARRAYSIZE(points) - 1; j++)
         {
             
-            std::cout<< rand()<<" ";
+            
             int rnd =  rand() % 2;
             points[i][j] =  rnd;
 
@@ -222,6 +223,20 @@ int main()
                 sf::FloatRect Area(0, 0, event.size.width, event.size.height);
                 window.setView(sf::View(Area));
             }
+			if (event.type == sf::Event::MouseButtonPressed)
+			{
+				if (event.mouseButton.button == sf::Mouse::Right)
+				{
+                    int x_pos = round((event.mouseButton.x - shape.getRadius()) / TILE_SIZE);
+                    int y_pos = round((event.mouseButton.y - shape.getRadius()) / TILE_SIZE);
+					/*std::cout << "mouse x: " << clamp(x_pos,0,50) << std::endl;
+					std::cout << "mouse y: " << clamp(y_pos,0,50) << std::endl;*/
+                    x_pos = clamp(x_pos, 0, 50);
+                    y_pos = clamp(y_pos, 0, 50);
+
+                    points[y_pos][x_pos] = !points[y_pos][x_pos];
+				}
+			}
             //DrawLine(window, { 50, 50 }, { 75, 75 });
         }
 
@@ -231,5 +246,5 @@ int main()
         window.display();
     }
     
-   
+    std::cout << "HIIIIIIII\n";
 }
