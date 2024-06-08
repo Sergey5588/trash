@@ -1,9 +1,10 @@
 // with help of @MAX-TS
+
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <vector>
 #include <random>
-
+#include <ctime>
 
 #define ARRAYSIZE(a) (sizeof(a) / sizeof(a[0]))
 
@@ -138,12 +139,17 @@ int main()
     };*/
 
     int points[50][50];
-
+    time_t rawtime;
+    srand(time(&rawtime));
     for (int i = 0; i < ARRAYSIZE(points) - 1; i++)
     {
+        
         for (int j = 0; j < ARRAYSIZE(points) - 1; j++)
         {
-            points[i][j] = clamp(rand() % 2,0,1);
+            
+            std::cout<< rand()<<" ";
+            int rnd =  rand() % 2;
+            points[i][j] =  rnd;
 
             
         }
@@ -225,5 +231,5 @@ int main()
         window.display();
     }
     
-    
+   
 }
